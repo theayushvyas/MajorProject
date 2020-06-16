@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Covid</title>
+</head>
+<body>
+  <div id="covid">
+  	 <label for="div">Corona Virus Cases In INDIA LIVE:</label>
+  </br>
+  	  Total Cases:<div id="Total"></div>
+      Total Recovered<div id="Recovered"></div>
+      Total New Cases Today<div id="New"></div>
+      Total Deaths<div id="death"></div>
+    </div>
+  <script type="text/javascript">
+
+  	function cases() {
+  fetch('https://api.thevirustracker.com/free-api?countryTotal=IN')  
+  .then(function(resp) { return resp.json() }) // Convert data to json
+  .then(function(data) {
+    drawCases(data);
+  })
+  .catch(function() {
+    // catch any errors
+  });
+}
+window.onload = function() {
+    cases();
+}
+  function drawCases(d)
+  {
+  	var totalc = d.countrydata[0].total_cases;
+  	var R = d.countrydata[0].total_recovered;
+  	var newC = d.countrydata[0].total_new_cases_today;
+  	var death = d.countrydata[0].total_deaths;
+    document.getElementById('Total').innerHTML = totalc;
+    document.getElementById('Recovered').innerHTML = R;
+    document.getElementById('New').innerHTML = newC;
+    document.getElementById('death').innerHTML = death;
+    console.log(totalc);
+}
+</script>
+</div>
+
+ </div>
+</body>
+</html>
