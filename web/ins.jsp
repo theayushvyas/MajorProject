@@ -187,7 +187,7 @@
       </br> </br> <button id="sub" onClick="load()" class="button">Submit</button>
      </form>
            <script type="text/javascript">
-                    const key = '8118ed6ee68db2debfaaa5a44c832918';
+                    const key = '<USE YOUR OWN API KEYS>';
               if(key=='') document.getElementById('temp').innerHTML = ('Remember to add your api key!');
 
               // api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}
