@@ -18,7 +18,7 @@ import org.json.JSONObject;
     Scanner sc = new Scanner(System.in);
 
     try {
-        String ApiKey = "8118ed6ee68db2debfaaa5a44c832918";
+        String ApiKey = "<USE YOUR OWN API KEYS >";
         int cnt = 5;
         String urll ="https://api.openweathermap.org/data/2.5/forecast/daily?q="+city+"&units=metric&cnt="+cnt+"&appid="+ApiKey;
        
