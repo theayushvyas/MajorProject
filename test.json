@@ -1,6 +1,6 @@
 {
    "apiRoutes":{
-      "/pet":{
+      "pet":{
          "GET":{
             "description":"Get pet details by id",
             "request":{
