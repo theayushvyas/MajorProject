@@ -1,0 +1,80 @@
+{
+   "apiRoutes":{
+      "/pet":{
+         "GET":{
+            "description":"Get pet details by id",
+            "request":{
+               "query":{
+                  "id":{
+                     "required":true,
+                     "type":"int"
+                  }
+               },
+               "body":{
+ 
+               }
+            },
+            "response":{
+               "code":200,
+               "data":{
+                  "pet":{
+                     "id":1,
+                     "type":"Dog",
+                     "name":"Stella"
+                  }
+               }
+            }
+         },
+         "POST":{
+            "description":"Create a new pet and return id",
+            "request":{
+               "query":{
+ 
+               },
+               "body":{
+                  "pet":{
+                     "type":"Cat",
+                     "name":"Mirchi"
+                  }
+               }
+            },
+            "response":{
+               "code":200,
+               "data":{
+                  "pet":{
+                     "id":2
+                  }
+               }
+            }
+         }
+      },
+      "/customers":{
+         "GET":{
+            "description":"List all customers",
+            "request":{
+               "query":{
+ 
+               },
+               "body":{
+ 
+               }
+            },
+            "response":{
+               "code":200,
+               "data":{
+                  "customers":[
+                     {
+                        "id":1,
+                        "name":"John Doe"
+                     },
+                     {
+                        "id":2,
+                        "name":"Jane Doe"
+                     }
+                  ]
+               }
+            }
+         }
+      }
+   }
+}
