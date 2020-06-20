@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Current Weather</title>
+   <button type="button" onclick="petget()"></button>
+   <button type="button" onclick="petpost()"></button>
+   <button type="button" onclick="custget()"></button>
+</head>
+<body>
+<div id=GP1>
+</div></br>
+<div id=GP2>
+</div></br>
+<div id=GP3>
+</div></br>
+</br></br></br></br><div id=GP4>
+</div></br>
+<div id=GP5>
+</div></br>
+<div id=GP6>
+</div>
+</div></br>
+<div id=GP7>
+</div> 
+ <script type="text/javascript">
+
+  	function petget() {
+  fetch('https://raw.githubusercontent.com/theayushvyas/MajorProject/master/test.json')  
+  .then(function(resp) { return resp.json() }) // Convert data to json
+  .then(function(data) {
+    
+    var getpet =  data.apiRoutes["/pet"].GET.description;
+    var getpet1 = data.apiRoutes["/pet"].GET.request.query.id;
+    var getpet3 = data.apiRoutes["/pet"].GET.response.data.pet;
+
+
+    document.getElementById('GP1').innerHTML = JSON.stringify(getpet);
+    document.getElementById('GP2').innerHTML = JSON.stringify(getpet1);
+    document.getElementById('GP3').innerHTML = "";
+    document.getElementById('GP4').innerHTML = JSON.stringify(getpet3);
+    document.getElementById('GP5').innerHTML = "";
+    document.getElementById('GP6').innerHTML = "";   
+    console.log(getpet);
+  })
+  .catch(function() {
+    // catch any errors
+  });
+}
+ 	function petpost() {
+  fetch('https://raw.githubusercontent.com/theayushvyas/MajorProject/master/test.json')  
+  .then(function(resp) { return resp.json() }) // Convert data to json
+  .then(function(data) {
+    var postpet =  data.apiRoutes["/pet"].POST.description;
+    var postpet1 = data.apiRoutes["/pet"].POST.request.body;
+    var postpet3 = data.apiRoutes["/pet"].POST.response.data;
+
+    document.getElementById('GP1').innerHTML = JSON.stringify(postpet);
+    document.getElementById('GP2').innerHTML = JSON.stringify(postpet1);
+    document.getElementById('GP3').innerHTML = JSON.stringify(postpet3);
+    document.getElementById('GP4').innerHTML = "";
+    document.getElementById('GP5').innerHTML = "";
+    document.getElementById('GP6').innerHTML = "";
+  })
+  .catch(function() {
+    // catch any errors
+  });
+}
+
+  function custget() {
+  fetch('https://raw.githubusercontent.com/theayushvyas/MajorProject/master/test.json')  
+  .then(function(resp) { return resp.json() }) // Convert data to json
+  .then(function(data) {
+    var postpet =  data.apiRoutes["/customers"].GET.description;
+    var postpet1 = data.apiRoutes["/customers"].GET.response.data.customers[0];
+    var postpet2 = data.apiRoutes["/customers"].GET.response.data.customers[1];
+
+document.getElementById('GP2').innerHTML = JSON.stringify(postpet1);
+    document.getElementById('GP3').innerHTML = JSON.stringify(postpet2 , null , "\n");
+  })
+  .catch(function() {
+    // catch any errors
+  });
+}
+</script>
+</body>
+</html>
